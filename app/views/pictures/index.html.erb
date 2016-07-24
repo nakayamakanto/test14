@@ -16,10 +16,10 @@
   <tbody>
     <% @pictures.each do |picture| %>
       <tr>
-        <td><%= picture.title %></td>
-        <td><%= picture.url %></td>
-        <td><%= picture.user_id %></td>
-        <td><%= picture.content %></td>
+        <td>ユーザー名</td><td><%= User.find(picture.user_id).name %></td>
+        <td>タイトル</td><td><%= picture.title %></td>
+        <td>画像</td><td><%= picture.url %></td>
+        <td>コメント</td><td><%= picture.content %></td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
         <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
