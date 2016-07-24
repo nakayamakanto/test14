@@ -3,7 +3,7 @@ module ApplicationHelper
         return image_tag(user.avatar, alt: user.name) if user.avatar?
         
         if user.provider.blank?
-          img_url = user.image_url
+          img_url = user.image
         else
           img_url = 'no_image.png'
         end
