@@ -3,11 +3,11 @@
 one:
   title: MyString
   url: MyString
-  uid: 1
+  user_id: 1
   content: MyText
 
 two:
   title: MyString
   url: MyString
-  uid: 1
+  user_id: 1
   content: MyText
