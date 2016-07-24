@@ -39,6 +39,9 @@ gem 'therubyracer', platforms: :ruby
 gem 'rails_admin'
 gem "cancan"
 
+#for bootstrap
+#gem 'twitter-bootstrap-rails'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
@@ -59,6 +62,7 @@ group :development, :test do
 
   #for debug
   gem 'pry-rails'
+  gem 'better_errors'
 
   #to see the mail result
   gem 'letter_opener'
