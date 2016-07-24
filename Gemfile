@@ -34,6 +34,11 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'rmagick'
 
+# for admin login
+gem 'therubyracer', platforms: :ruby
+gem 'rails_admin'
+gem "cancan"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
