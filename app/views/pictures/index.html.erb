@@ -18,7 +18,7 @@
       <tr>
         <td>ユーザー名</td><td><%= User.find(picture.user_id).name %></td>
         <td>タイトル</td><td><%= picture.title %></td>
-        <td>画像</td><td><%= picture.url %></td>
+        <td>画像</td><td><%= image_tag Picture.find(picture.id).image_url(:thumb) %></td>
         <td>コメント</td><td><%= picture.content %></td>
         <td><%= link_to 'Show', picture %></td>
         <td><%= link_to 'Edit', edit_picture_path(picture) %></td>

@@ -6,13 +6,14 @@
 </p>
 
 <p>
-  <strong>Url:</strong>
-  <%= @picture.url %>
+  <strong>Image:</strong>
+  <%= image_tag @picture.image_url(:thumb) %>
+  <!--<%= @picture.image %>-->
 </p>
 
 <p>
-  <strong>User_id:</strong>
-  <%= @picture.user_id %>
+  <strong>UserName:</strong>
+  <%= @picture.user.name %>
 </p>
 
 <p>
