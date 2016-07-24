@@ -1,33 +1,17 @@
-<p id="notice"><%= notice %></p>
-
 <h1>Listing Pictures</h1>
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Url</th>
-      <th>User_id</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @pictures.each do |picture| %>
-      <tr>
-        <td>ユーザー名</td><td><%= User.find(picture.user_id).name %></td>
-        <td>タイトル</td><td><%= picture.title %></td>
-        <td>画像</td><td><%= image_tag Picture.find(picture.id).image_url(:thumb) %></td>
-        <td>コメント</td><td><%= picture.content %></td>
-        <td><%= link_to 'Show', picture %></td>
-        <td><%= link_to 'Edit', edit_picture_path(picture) %></td>
-        <td><%= link_to 'Destroy', picture, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Picture', new_picture_path %>
+<%= link_to "新規投稿", new_picture_path, class: "btn btn-default btn-primary btn-sm" %>
+        
+  <% @pictures.each do |picture| %>
+    <div class="row">
+      <p>ユーザーID:<%= picture.user_id %></p>
+      <p>ユーザー名:<%= picture.user.name %></p>
+      <p>タイトル:<%= picture.title %></p>
+      <p>画像</p>
+      <div><%= image_tag picture.image_url(:thumb) %></div>
+      <p>コメント:<%= picture.content %></p>
+      <%= link_to "個別表示", picture, class: "btn btn-default btn-success btn-sm" %>
+      <%= link_to "投稿編集", edit_picture_path(picture), class: "btn btn-default btn-success btn-sm" %>
+      <%= link_to "削除", picture, method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
+    </div>
+  <% end %>
