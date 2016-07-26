@@ -38,7 +38,9 @@
   
   <div class="field">
     <%= profile_img(@user) if profile_img(@user) %>
-    <%= f.file_field :avatar %>
+    <div class="my-file-box">
+      <%= f.file_field :avatar, :class => "my-file-input" %>
+    </div>
     <%= f.hidden_field :avatar_cache %>
   </div>
 
