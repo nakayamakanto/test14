@@ -36,9 +36,6 @@ gem 'omniauth-facebook'
 gem 'carrierwave'
 gem 'rmagick'
 
-# googledrive
-gem 'google_drive'
-
 # for admin login
 gem 'therubyracer', platforms: :ruby
 gem 'rails_admin'
