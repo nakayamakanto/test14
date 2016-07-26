@@ -1,9 +1,4 @@
 ready = ->
-  $(".my-file-box").each ->
-    formWidth = $(this).width()
-    $(this).find(".my-file-input").each ->
-      $(this).css "margin-left", getNewInputMargin($(this), formWidth)
-
   $(window).scroll ->
     element = $('.page-top-btn')
     visible = element.is(':visible')
@@ -20,7 +15,6 @@ ready = ->
 
   $(document).resizeFormInputs
   resizeFormInputs
-  console.log('done');
 
 getNewInputMargin=(el, formWidth) ->
   mymargin = (formWidth - 210)/2
@@ -31,6 +25,4 @@ resizeFormInputs = ->
     $(this).find(".my-file-input").each ->
       $(this).css "margin-left", getNewInputMargin($(this), formWidth)
 
-$(document).ready(ready)
-$(document).on('page:load', ready)
-$(document).on('page:change', resizeFormInputs)
+$(document).on('turbolinks:load', ready)
