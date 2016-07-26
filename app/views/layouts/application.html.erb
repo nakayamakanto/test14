@@ -8,16 +8,31 @@
 </head>
 <body>
   <header>
+    <%= link_to "pictures", pictures_path, class: "btn btn-default btn-primary btn-sm" %>
+    <% unless user_signed_in? %>
+      <%= link_to "sign_in", new_user_session_path, class: "btn btn-default btn-success btn-sm" %>
+      <%= link_to "sign_up", new_user_registration_path, class: "btn btn-default btn-success btn-sm" %>
+    <% else %>
+      <%= link_to "edit", edit_user_registration_path, class: "btn btn-default btn-success btn-sm" %>
+      <%= link_to "sign_out", destroy_user_session_path, method: :delete, class: "btn btn-default btn-danger btn-sm" %>
+    <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
-    <%= link_to "pictures", pictures_path %>
-    <%= link_to "sign_in", new_user_session_path %>
-    <%= link_to "sign_up", new_user_registration_path %>
-    <%= link_to "edit", edit_user_registration_path %>
-    <%= link_to "sign_out", destroy_user_session_path, method: :delete %>
   </header>
+  <div class="container">
+    <div class="wrapper col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1">
 
 <%= yield %>
+
+    </div>
+  </div>
+  <div id="page-top-btn" class="page-top-btn">
+    <p><a class="move-page-top" id="move-page-top">▲</a></p>
+  </div>
+  <div class="bottom-spacer"></div>
+  <footer>
+  <p>山© 2015-2016 Copyright Yama Corp.</p>
+  </footer>
 
 </body>
 </html>

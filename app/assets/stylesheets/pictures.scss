@@ -1,3 +1,20 @@
 // Place all the styles related to the Pictures controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.picture-list{
+  padding: 20px;
+}
+
+.picture-box{
+  padding-top: 15px;
+}
+
+.picture-box p{
+  margin:0 0 5px;
+}
+
+.my-file-input{
+  width:210px;
+  margin:0;
+}

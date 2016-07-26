@@ -1,21 +1,33 @@
-<%= form_for(@picture) do |f| %>
+<div class="form-horizontal" role="form">
+  <%= form_for(@picture) do |f| %>
+    <div class="form-group">
+      <div class="col-sm-offset-3 col-sm-10">
+        <%= f.error_messages! %>
+      </div>
+    </div>
 
-  <%= f.error_messages! %>
+    <div class="form-group">
+      <%= f.label :title, :class => "" %><br>
+      <div class="">
+        <%= f.text_field :title %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :image %><br>
-    <%= f.file_field :image %>
-  </div>
+    <div class="form-group">
+      <%= f.label :image, :class => "" %><br>
+      <div class="my-file-box ">
+        <%= f.file_field :image, :class => "my-file-input" %>
+      </div>
+    </div>
 
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <div class="form-group">
+      <%= f.label :content, :class => "" %><br>
+      <div class="">
+        <%= f.text_area :content %>
+      </div>
+    </div>
+    <div class="actions">
+      <%= f.submit %>
+    </div>
+  <% end %>
+</div>

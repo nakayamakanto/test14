@@ -1,17 +1,20 @@
 <h1>Listing Pictures</h1>
 
-<%= link_to "新規投稿", new_picture_path, class: "btn btn-default btn-primary btn-sm" %>
-        
-  <% @pictures.each do |picture| %>
-    <div class="row">
-      <p>ユーザーID:<%= picture.user_id %></p>
-      <p>ユーザー名:<%= picture.user.name %></p>
-      <p>タイトル:<%= picture.title %></p>
-      <p>画像</p>
-      <div><%= image_tag picture.image_url(:thumb) %></div>
-      <p>コメント:<%= picture.content %></p>
-      <%= link_to "個別表示", picture, class: "btn btn-default btn-success btn-sm" %>
-      <%= link_to "投稿編集", edit_picture_path(picture), class: "btn btn-default btn-success btn-sm" %>
-      <%= link_to "削除", picture, method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
-    </div>
-  <% end %>
+<%= link_to "新規投稿", new_picture_path, class: "btn btn-default btn-primary btn-block" %>
+  <div class="picture-list">
+    <% @pictures.each do |picture| %>
+      <div class="picture-box">
+        <div class="row">
+          <p>ユーザーID:<%= picture.user_id %></p>
+          <p>ユーザー名:<%= picture.user.name %></p>
+          <p>タイトル:<%= picture.title %></p>
+          <p>画像</p>
+          <div><%= image_tag picture.image_url(:thumb) %></div>
+          <p>コメント:<%= picture.content %></p>
+          <%= link_to "個別表示", picture, class: "btn btn-default btn-success btn-sm" %>
+          <%= link_to "投稿編集", edit_picture_path(picture), class: "btn btn-default btn-success btn-sm" %>
+          <%= link_to "削除", picture, method: :delete, data: {confirm: "この投稿を削除していいのですね？"}, class: "btn btn-default btn-danger btn-sm" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
