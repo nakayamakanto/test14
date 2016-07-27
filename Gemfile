@@ -45,6 +45,9 @@ gem "cancan"
 #for bootstrap
 gem 'twitter-bootstrap-rails'
 
+#for making fake data
+gem "faker"
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

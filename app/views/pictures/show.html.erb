@@ -1,25 +1,25 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>タイトル:</strong>
   <%= @picture.title %>
 </p>
 
 <p>
-  <strong>Image:</strong>
+  <strong>イメージ:</strong>
   <%= image_tag @picture.image_url(:thumb) %>
   <!--<%= @picture.image %>-->
 </p>
 
 <p>
-  <strong>UserName:</strong>
+  <strong>ユーザー名:</strong>
   <%= @picture.user.name %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <strong>コメント:</strong>
   <%= @picture.content %>
 </p>
 
-<%= link_to 'Edit', edit_picture_path(@picture) %> |
-<%= link_to 'Back', pictures_path %>
+<%= link_to '投稿編集', edit_picture_path(@picture) %> |
+<%= link_to '戻る', pictures_path %>

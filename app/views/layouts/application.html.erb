@@ -8,13 +8,13 @@
 </head>
 <body>
   <header>
-    <%= link_to "pictures", pictures_path, class: "btn btn-default btn-primary btn-sm" %>
+    <%= link_to "投稿画像", pictures_path, class: "btn btn-default btn-primary btn-sm" %>
     <% unless user_signed_in? %>
-      <%= link_to "sign_in", new_user_session_path, class: "btn btn-default btn-success btn-sm" %>
-      <%= link_to "sign_up", new_user_registration_path, class: "btn btn-default btn-success btn-sm" %>
+      <%= link_to "サインイン", new_user_session_path, class: "btn btn-default btn-success btn-sm" %>
+      <%= link_to "サインアップ", new_user_registration_path, class: "btn btn-default btn-success btn-sm" %>
     <% else %>
-      <%= link_to "edit", edit_user_registration_path, class: "btn btn-default btn-success btn-sm" %>
-      <%= link_to "sign_out", destroy_user_session_path, method: :delete, class: "btn btn-default btn-danger btn-sm" %>
+      <%= link_to "ユーザー情報更新", edit_user_registration_path, class: "btn btn-default btn-success btn-sm" %>
+      <%= link_to "サインアウト", destroy_user_session_path, method: :delete, class: "btn btn-default btn-danger btn-sm" %>
     <% end %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
