@@ -11,6 +11,10 @@
 /log/*
 !/log/.keep
 /tmp
+
+# Ignore .env file
 /.env
 .env
+
+#Ignore the past upload file
 /public/uploads/picture/image/*
