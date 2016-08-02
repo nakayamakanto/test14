@@ -1,6 +1,6 @@
 class RelationsController < ApplicationController
   before_action :authenticate_user!
-  binding.pry
+  #binding.pry
   respond_to :js
 
   def create
@@ -8,22 +8,25 @@ class RelationsController < ApplicationController
     #current_user.follow!(@user)
     #respond_with @user
     @relation=current_user.follower_relations.build(relation_params)
-    respond_to do |format|
-      if @relation.save
-        respind_with @relation
-      else
+    if @relation.save
+      respond_with @relation
+    else
         
-      end
     end
   end
   
   def destroy
-
+    @relation=Relation.find(params[:id])
+    followed_id=@relation.followed_id
+    if @relation.destroy
+      @new_relation=current_user.follower_relations.build(followed_id: followed_id)
+      respond_with @new_relation
+    end
   end
 
   private
     def relation_params
-      binding.pry
+      #binding.pry
       params.require(:relation).permit(:followed_id)
     end
 end

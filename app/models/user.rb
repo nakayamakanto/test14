@@ -13,8 +13,8 @@ class User < ActiveRecord::Base
   has_many :followers, through: :followed_relations, source: :follower
   has_many :followed_users, through: :follower_relations, source: :followed 
   
-  def following?(followed_user)
-    Relation.find_by(followed_id: followed_user)
+  def following?(followed_id)
+    Relation.find_by(followed_id: followed_id)
   end
 
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)

@@ -2,5 +2,6 @@
 <% @users.each do |user| %>
   <%= user.name %>
   <%= profile_img(user) %>
-  <%= render partial: "relations/follow_form", locals: {followed_user: user} %>
+  <div id=<%= "follow_form_#{user.id}" %>>
+    <%= render partial: "relations/follow_form", locals: {my_followed_id: user.id} %>
 <% end %>
