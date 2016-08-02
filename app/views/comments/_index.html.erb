@@ -1,0 +1,13 @@
+<ul>
+  <% comments.each do |comment| %>
+    <% unless comment.id == nil %>
+      <li>
+        <h4><%= comment.user.name %></h4>
+        <h4><%= comment.content %></h4>
+        <% if current_user.id == comment.user.id %>
+          <%= link_to "削除", picture_comment_path(picture, comment), method: :delete, remote: true, alert: "本当に削除しますね" %>
+        <% end %>
+      </li>
+    <% end %>
+  <% end %>
+</ul>

@@ -6,8 +6,17 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable, :confirmable, :omniauthable
 
-  has_many :pictures, dependent: :delete_all
+  has_many :pictures, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :follower_relations, foreign_key: "follower_id", class_name: "Relation", dependent: :destroy
+  has_many :followed_relations, foreign_key: "followed_id", class_name: "Relation", dependent: :destroy
+  has_many :followers, through: :followed_relations, source: :follower
+  has_many :followed_users, through: :follower_relations, source: :followed 
   
+  def following?(followed_user)
+    Relation.find_by(followed_id: followed_user)
+  end
+
   def self.find_for_facebook_oauth(auth, signed_in_resource=nil)
     user = User.where(provider: auth.provider, uid: auth.uid).first
 

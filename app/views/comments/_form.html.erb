@@ -1,0 +1,18 @@
+<%= form_for(comment, url: picture_comments_path(picture, comment), remote: true) do |f| %>
+  <div class="form-group">
+    <div class="field">
+      <%= f.error_messages! %>
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="field">
+      <%= f.hidden_field :picture_id, value: picture.id %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.text_field :content, placeholder: "内容", class: "form-control" %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

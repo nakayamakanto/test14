@@ -1,0 +1,6 @@
+<h2>ユーザー一覧</h2>
+<% @users.each do |user| %>
+  <%= user.name %>
+  <%= profile_img(user) %>
+  <%= render partial: "relations/follow_form", locals: {followed_user: user} %>
+<% end %>

@@ -69,6 +69,10 @@ group :development, :test do
   #for debug
   gem 'pry-rails'
   gem 'better_errors'
+  gem 'awesome_print', require: 'ap'
+
+  #asssetのコンソールが長いから・・・
+  gem 'quiet_assets'
 
   #to see the mail result
   gem 'letter_opener'

@@ -1,10 +1,18 @@
 Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
+  
   devise_for :users, controllers: {
     registrations: "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
-  resources :pictures
+
+  resources :pictures do
+    resources :comments, only: [:new, :create, :index, :destroy]
+  end
+
+  resources :users, only: [:index]
+
+  resources :relations, only: [:create, :destroy]
 
   root "top#index"
   # The priority is based upon order of creation: first created -> highest priority.
