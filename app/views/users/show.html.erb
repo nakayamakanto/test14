@@ -1,0 +1,15 @@
+  <h2>ユーザーページ</h2>
+  <p>お名前：<%= @user.name %></p>
+  <h4>フォローしている人</h4>
+  <% binding.pry %>
+  <% @my_followed_users.each do |my_followed| %>
+    <% binding.pry %>
+    <%= my_followed.name %>
+    <%= render partial: "relations/follow_form", locals: {my_followed_id: my_followed.id} %>
+  <% end %>
+  <h4>フォロワー</h4>
+  <% @my_followers.each do |my_follower| %>
+    <% binding.pry %>
+    <%= my_follower.name %>
+    <%= render partial: "relations/follow_form", locals: {my_followed_id: my_follower.id} %>
+  <% end %>

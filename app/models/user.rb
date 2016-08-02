@@ -11,7 +11,7 @@ class User < ActiveRecord::Base
   has_many :follower_relations, foreign_key: "follower_id", class_name: "Relation", dependent: :destroy
   has_many :followed_relations, foreign_key: "followed_id", class_name: "Relation", dependent: :destroy
   has_many :followers, through: :followed_relations, source: :follower
-  has_many :followed_users, through: :follower_relations, source: :followed 
+  has_many :followed_users, through: :follower_relations, source: :followed
   
   def following?(followed_id)
     Relation.find_by(followed_id: followed_id)
